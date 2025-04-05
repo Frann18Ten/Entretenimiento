@@ -3,29 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galería de contenido</title>
+  <title>Galería</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .galeria-botones {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .galeria-botones button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .contenido {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .contenido img, .contenido video {
+      max-width: 300px;
+      margin: 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Galería de contenido exclusivo</h1>
+  <h1 style="text-align: center;">Galería de contenido exclusivo</h1>
 
-  <h2>Fotos</h2>
-  <div class="galeria-fotos">
-    <img src="imagenes/foto1.jpg" alt="Foto 1" />
-    <img src="imagenes/foto2.png" alt="Foto 2" />
-    <!-- Agrega más imágenes si querés -->
+  <div class="galeria-botones">
+    <button onclick="mostrar('imagenes')">Imágenes</button>
+    <button onclick="mostrar('videos')">Videos</button>
   </div>
 
-  <h2>Videos</h2>
-  <div class="galeria-videos">
-    <video controls width="300">
+  <div id="imagenes" class="contenido">
+    <h2>Fotos</h2>
+    <img src="imagenes/foto1.jpg" alt="Foto 1" />
+    <img src="imagenes/foto2.png" alt="Foto 2" />
+  </div>
+
+  <div id="videos" class="contenido">
+    <h2>Videos</h2>
+    <video controls>
       <source src="videos/video1.mp4" type="video/mp4" />
       Tu navegador no soporta video.
     </video>
-    <!-- Agrega más videos si querés -->
   </div>
 
-  <br />
-  <a href="index.html"><button>Volver al inicio</button></a>
+  <script>
+    function mostrar(seccion) {
+      document.getElementById('imagenes').style.display = 'none';
+      document.getElementById('videos').style.display = 'none';
+      document.getElementById(seccion).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
